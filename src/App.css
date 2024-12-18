@@ -1,38 +1,139 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: #2d292c;
+  background-image: 
+      radial-gradient(at 70% 70%, hsl(198.00, 100%, 50%) 0, transparent 70%);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.wrapper {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 600px;
+  box-sizing: border-box;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  text-align: center;
+  color: rgb(249, 246, 246);
+  margin-bottom: 1rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.error-text, .loading-text, .success-text {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.error-text {
+  color: #f44336;
+}
+
+.success-text {
+  color: #4caf50;
+}
+
+.submit-btn {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #3fc7dc;
+  color: rgb(13, 13, 13);
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  opacity: 0.8;
+  background-color: #61d2e7;
+}
+
+.reset-btn {
+  background-color: #ff61c8;
+  
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.reset-btn:hover {
+  background-color: #ff5cfc;
+}
+
+
+
+::placeholder {
+  color: rgb(13, 13, 13); /* Ensures placeholder text is also white */
+  opacity: 0.7; /* Optional, makes placeholder slightly transparent */
+}
+
+/* Add these styles to explicitly set the background color */
+.input-field, select, input[type="date"] {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  outline: none;
+}
+
+/* Ensure consistent focus behavior */
+.input-field:focus, select:focus, input[type="date"]:focus {
+  border-color: #3fc7dc; /* Highlighted border color */
+  box-shadow: 0 0 5px rgba(63, 199, 220, 0.7);
+  background-color: white; /* White background on focus */
+}
+
+/* Placeholder styling (applicable only for input fields) */
+/* Blinking Keyframe Animation */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(63, 199, 220, 0.7); }
+  50% { box-shadow: 0 0 15px rgba(63, 199, 220, 0.9); }
+  100% { box-shadow: 0 0 5px rgba(63, 199, 220, 0.7); }
+}
+
+/* Blinking Effect for Success, Error, and Loading Text */
+.error-text, .loading-text, .success-text {
+  animation: blink 1.5s infinite;
+}
+
+/* Blinking Button Effect */
+.submit-btn, .reset-btn {
+  animation: glow 1.5s infinite;
+}
+
+/* Optional: Add blinking effect to the placeholder */
+@keyframes placeholderBlink {
+  0% { opacity: 0.7; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0.7; }
+}
+
+::placeholder {
+  animation: placeholderBlink 2s infinite;
+  color: rgb(10, 10, 10);
 }
